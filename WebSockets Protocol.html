@@ -1,0 +1,625 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>WebSockets Protocol - RTCMesh Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="css/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#websockets-protocol" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="index.html" title="RTCMesh Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              RTCMesh Docs
+            </span>
+            <span class="md-header-nav__topic">
+              
+                WebSockets Protocol
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="index.html" title="RTCMesh Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    RTCMesh Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="index.html" title="RTCMesh" class="md-nav__link">
+      RTCMesh
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        WebSockets Protocol
+      </label>
+    
+    <a href="WebSockets Protocol.html" title="WebSockets Protocol" class="md-nav__link md-nav__link--active">
+      WebSockets Protocol
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#action-verbs" class="md-nav__link">
+    Action verbs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-types" class="md-nav__link">
+    Message types
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requests" class="md-nav__link">
+    Requests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direct-responses" class="md-nav__link">
+    Direct responses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indirect-responses" class="md-nav__link">
+    Indirect responses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirmations" class="md-nav__link">
+    Confirmations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standard-message-structure" class="md-nav__link">
+    Standard message structure
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#message-formats" class="md-nav__link">
+    Message formats
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asynchronous-transactions" class="md-nav__link">
+    Asynchronous transactions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-response" class="md-nav__link">
+    request-response
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-response-confirm" class="md-nav__link">
+    request-response-confirm
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#action-verbs" class="md-nav__link">
+    Action verbs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-types" class="md-nav__link">
+    Message types
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requests" class="md-nav__link">
+    Requests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direct-responses" class="md-nav__link">
+    Direct responses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indirect-responses" class="md-nav__link">
+    Indirect responses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirmations" class="md-nav__link">
+    Confirmations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standard-message-structure" class="md-nav__link">
+    Standard message structure
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#message-formats" class="md-nav__link">
+    Message formats
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asynchronous-transactions" class="md-nav__link">
+    Asynchronous transactions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-response" class="md-nav__link">
+    request-response
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-response-confirm" class="md-nav__link">
+    request-response-confirm
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="websockets-protocol">WebSockets Protocol</h1>
+<p>Inspired by <a href="https://mmikowski.github.io/json-pure/">JSON-Pure</a> </p>
+<p>As we move to the real-time web we also need to move from RESTful APIs to a protocol suited to WebSockets.</p>
+<p>In a service based architecture the app endpoint needs to know which service to call in order to obtain the resource data. A single WebSocket connection to the app endpoint (rtcmesh-server) will then forward the request to the service (rtcmesh-service).</p>
+<h2 id="action-verbs">Action verbs</h2>
+<table>
+<thead>
+<tr>
+<th>Request</th>
+<th>Response</th>
+<th>Confirmation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>retrieve</code></td>
+<td><code>RETRIEVED or RETRIEVE_FAIL</code></td>
+<td><code>abort, done, retry</code></td>
+</tr>
+<tr>
+<td><code>create</code></td>
+<td><code>CREATE or CREATE_FAIL</code></td>
+<td><code>abort, done, retry</code></td>
+</tr>
+<tr>
+<td><code>update</code></td>
+<td><code>UPDATE or UPDATE_FAIL</code></td>
+<td><code>abort, done, retry</code></td>
+</tr>
+<tr>
+<td><code>crt_updt</code></td>
+<td><code>CRT_UPTD or CRT_UPDT_FAIL</code></td>
+<td><code>abort, done, retry</code></td>
+</tr>
+<tr>
+<td><code>delete</code></td>
+<td><code>DELETED or DELETE_FAIL</code></td>
+<td><code>abort, done, retry</code></td>
+</tr>
+<tr>
+<td><code>patch</code></td>
+<td><code>PATCHED or PATCH_FAIL</code></td>
+<td><code>abort, done, retry</code></td>
+</tr>
+<tr>
+<td><code>flush</code></td>
+<td><code>FLUSHED or FLUSH_FAIL</code></td>
+<td><code>abort, done, retry</code></td>
+</tr>
+</tbody>
+</table>
+<p>The <code>create</code> verb -- equivalent to a POST method in a RESTful API is not idempotent.  If possible we suggest to create the resource ID at the point of origin -- typically on the client -- so that multiple messages or retries do not result in a resource duplication. You can use the <code>crt_upd</code> verb to create the resource if it doesn't exist or update if it does abd ditch both <code>create</code> and <code>update</code>.</p>
+<p>The <code>flush</code> verb which does not have an equivalent on the REST API was added so that the client can tell the server when it has removed data from its storage. Thus when the server distributes notification of changed records, it doesn’t have to send messages to clients that have flushed the containing record or data set.</p>
+<h2 id="message-types">Message types</h2>
+<p>SPA APIs generally require four message types:</p>
+<ul>
+<li>Requests</li>
+<li>Direct responses</li>
+<li>Indirect responses</li>
+<li>Confirmations</li>
+</ul>
+<h3 id="requests">Requests</h3>
+<p>Requests are messages sent from clients requesting data manipulation or delivery. An example request to change a specific record would have the <code>crt_updt</code> or <code>update</code> action verb.</p>
+<h3 id="direct-responses">Direct responses</h3>
+<p>Direct responses are messages from the server to attached clients directly in response to a request. A direct response to the <code>crt_updt</code> request in the example would use the <code>CRT_UPDTD</code> action verb.</p>
+<h3 id="indirect-responses">Indirect responses</h3>
+<p>Indirect responses are sent from the server to clients without a direct corresponding request. This happens when the server needs to notify a client of a data change, such as an updated, deleted, or new record. An indirect response for the example above would have an <code>CRT_UPDTD</code> action verb.</p>
+<h3 id="confirmations">Confirmations</h3>
+<p>Confirmations are sent from a client to a server to confirm a response has been received and processed. The client may indicate success with <code>done</code>, cancel the transaction with <code>abort</code>, or re-request the message with <code>retry</code>. Generally it is a good idea to avoid the complexities of supporting the idea of “partial success”.</p>
+<h2 id="standard-message-structure">Standard message structure</h2>
+<p>API messages should have a standard, minimal structure that is consistent and easy to read.</p>
+<h3 id="message-formats">Message formats</h3>
+<p>Here is a template of JSON message formats for the request, response, and confirm phases of a transaction:</p>
+<pre><code>// request
+{ trans_id   : &quot;2c592003-1667-491f-8fd2-796acbae198b&quot;,
+  action     : &quot;retrieve&quot;,
+  service    : &quot;inventory&quot;,
+  resource   : &quot;items&quot;,
+  parameters : {filter : &quot;data-&gt;&gt;'deleted' != 'TRUE;&quot;}
+}
+// response
+{ trans_id  : &quot;2c592003-1667-491f-8fd2-796acbae198b&quot;,
+  action    : &quot;RETRIEVED&quot;,
+  service   : &quot;inventory&quot;,
+  resource  : &quot;items&quot;,
+  response  : {code : 200, 
+               message : &quot;OK&quot;, 
+               data :
+                 {name : &quot;something&quot;, 
+                  price : 20.00, 
+                  ...
+                 }
+              },
+}
+</code></pre>
+
+<h2 id="asynchronous-transactions">Asynchronous transactions</h2>
+<p>We use <code>request-response-confirm</code> for API transactions instead of the REST <code>request-response</code> convention. To understand why let’s consider when <code>request-response</code> is more appropriate.</p>
+<h3 id="request-response">request-response</h3>
+<p>We want the classic <code>request-response</code> approach when the web browser is used to display published content like a blog page. It is simple, clean, and well-understood. Any benefit of using a more complex transaction is almost certainly outweighed by the costs.</p>
+<h3 id="request-response-confirm">request-response-confirm</h3>
+<p>SPAs, however, are better served by <code>request-response-confirm</code> transactions. For example, if a client requests a resource, the server issues a response. Once the client has received and processed the response, it will send a confirm to the server.</p>
+<p>The benefits of the <code>request-response-confirm</code> transaction include:</p>
+<ul>
+<li>
+<p>The confirmation goes beyond the transport status – was the message received? – and reports to the server the application status of the message – was the message properly processed and consumed? This is very important for an SPA so the server may keep track of client data sets.</p>
+</li>
+<li>
+<p>The transaction is asynchronous. The client, for example, may take 20 seconds to consume a large data set; or perhaps the client may wait for user approval before processing or denying a provided data set. During this time, the server can continue to process other request while awaiting the confirmation. Implementing such a delay over a typical RESTful <code>request-response</code> cycle can be difficult and expensive.</p>
+</li>
+</ul>
+<p>The <code>request-response-confirm</code> cycle is therefore often the best option if we need to sync records between a rich client and server.</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="index.html" title="RTCMesh" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                RTCMesh
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"."}})</script>
+      
+    
+  </body>
+</html>
